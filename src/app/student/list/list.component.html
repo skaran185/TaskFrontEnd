@@ -1,0 +1,117 @@
+<div class="main-panel">
+    <div class="content">
+        <div class="page-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-head-row">
+                                <div class="col-md-3">
+                                    <div class="input-group" id="adv-search">
+                                        <input type="text" class="form-control"
+                                            (keyup)="Filter(SearchString,FilterType)" [(ngModel)]="SearchString"
+                                            placeholder="any text . . ." />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group" id="adv-search">
+                                        <select class="form-control" [(ngModel)]="FilterType"
+                                            (change)="Filter(SearchString,$event.target.value)">
+                                            <option value=0>Filter Type</option>
+                                            <option value=1>Class</option>
+                                            <option value=2>Subject</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="ml-auto">
+                                    <button type="button" class="btn btn-success" [routerLink]="['student']"
+                                        routerLinkActive="router-link-active">
+                                        Add New
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <table class="table no-border">
+                                                        <tr>
+                                                            <th>
+                                                                First Name
+                                                            </th>
+                                                            <th width="15%">
+                                                                Last Name
+                                                            </th>
+                                                            <th width="15%">
+                                                                Class
+                                                            </th>
+                                                            <th width="15%">
+                                                                Subject
+                                                            </th>
+                                                            <th width="15%">
+                                                                Marks
+                                                            </th>
+                                                            <th width="15%">
+                                                                Action
+                                                            </th>
+                                                        </tr>
+
+                                                        <tr *ngFor="let c of Studetns">
+                                                            <td>
+                                                                {{ c.FirstName }}
+                                                            </td>
+                                                            <td>
+                                                                {{ c.LastName }}
+                                                            </td>
+                                                            <td>
+                                                                {{ c.Class }}
+                                                            </td>
+                                                            <td>
+                                                                {{ c.Subject }}
+                                                            </td>
+                                                            <td>
+                                                                {{ c.Marks }}
+                                                            </td>
+                                                            <td>
+                                                                <button (click)="onEdit(c.Id)"
+                                                                    class="btn btn-sm btn-outline-danger mr-2">
+                                                                    Edit
+                                                                </button>
+                                                                <button (click)="onDelete(c.Id)"
+                                                                    class="btn btn-sm btn-outline-danger mr-2">
+                                                                    Delete
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="no-left-right" *ngIf="count">
+                                    <app-admin-pagination [count]="count" [page]="page" [(perPage)]="perPage"
+                                        [pagesToShow]="pagesToShow" (goPrev)="prevPage()" (goNext)="nextPage()"
+                                        (goPage)="goToPage($event)" (pageSize)="newPageSize($event)">
+                                    </app-admin-pagination>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

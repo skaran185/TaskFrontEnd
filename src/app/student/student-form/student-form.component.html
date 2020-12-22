@@ -1,0 +1,78 @@
+<div class="main-panel">
+    <div class="content">
+
+        <div class="page-inner">
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-head-row">
+                                <div class="card-title">Student information </div>
+                            </div>
+                        </div>
+                        <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+                            <div class="card-body">
+                                <div class="row mt-3">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>First name </label>
+                                            <input class="form-control" type="text" placeholder="FirstName"
+                                                name="FirstName" #FirstName="ngModel"
+                                                [(ngModel)]="service.formData.FirstName">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Last name </label>
+                                            <input class="form-control" type="text" placeholder="LastName"
+                                                name="LastName" #LastName="ngModel"
+                                                [(ngModel)]="service.formData.LastName">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Class</label>
+                                            <input class="form-control" type="text" placeholder="Class" name="Class"
+                                                #Class="ngModel" [(ngModel)]="service.formData.Class">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Subject</label>
+                                            <input class="form-control" type="text"
+                                                placeholder="Subject-1,Subject-2,Subject-3" name="Subject"
+                                                #Subject="ngModel" [(ngModel)]="service.formData.Subject">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Marks</label>
+                                            <input class="form-control" type="text"
+                                                placeholder="Marks-1,Marks-2,Marks-3" name="Marks" #Marks="ngModel"
+                                                [(ngModel)]="service.formData.Marks">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="hidden" name="Id" #Id="ngModel"
+                                                [(ngModel)]="service.formData.Id">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="col-md-2 mt-2">
+                                        <button type="submit" class="btn btn-primary ">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
